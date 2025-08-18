@@ -1,0 +1,73 @@
+<%- include('includes/head.ejs') %>
+    <%- include('includes/nav.ejs') %>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2"></div>
+
+                <div class="col-lg-8 my-5">
+                    <h1 class="display-1 text-center">Criar conta ou entrar</h1>
+                    <p class="text-center lead">Faça login ou crie sua conta abaixo</p>
+
+                    <%- include('includes/errors'); %>
+
+                    <div class="row">
+                        <div class="col-lg">
+                            <h4>Faça seu cadastro</h4>
+                            <form action="/login/register" method="POST">
+                                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Endereço de email</label>
+                                    <input type="email" class="form-control" id="exampleInputEmail1"
+                                        aria-describedby="emailHelp" placeholder="Seu email" name="email">
+                                    <small id="emailHelp" class="form-text text-muted">Nunca vamos compartilhar seu
+                                        email, com ninguém.</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Senha</label>
+                                    <input type="password" class="form-control" id="exampleInputPassword1"
+                                        placeholder="Senha" name="password">
+                                </div>
+                                <div class="form-group form-check">
+                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                    <label class="form-check-label" for="exampleCheck1">Aceito os termos de
+                                        condição</label>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Criar minha conta</button>
+                            </form>
+                        </div>
+
+                        <div class="col-lg">
+                            <h4>Faça login</h4>
+                            <form action="/login/initial" method="POST">
+                                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Endereço de email</label>
+                                    <input type="email" class="form-control" id="exampleInputEmail1"
+                                        aria-describedby="emailHelp" placeholder="Seu email" name="email">
+                                    <small id="emailHelp" class="form-text text-muted">Nunca vamos compartilhar seu
+                                        email, com ninguém.</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Senha</label>
+                                    <input type="password" class="form-control" id="exampleInputPassword1"
+                                        placeholder="Senha" name="password">
+                                </div>
+                                <div class="form-group form-check">
+                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                    <label class="form-check-label" for="exampleCheck1">Aceito os termos de
+                                        condição</label>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Fazer login</button>
+                            </form>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-lg-2"></div>
+            </div>
+        </div>
+
+        <%- include('includes/footer.ejs') %>
