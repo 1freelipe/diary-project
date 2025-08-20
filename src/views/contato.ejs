@@ -1,31 +1,42 @@
 <%- include('includes/head.ejs') %>
     <%- include('includes/nav.ejs') %>
 
+
         <div class="container">
             <div class="row">
                 <div class="col-lg-2"></div>
 
                 <div class="col-lg-8 my-5">
-                    <h1 class="display-1 text-center">Essa é sua página de contatos</h1>
-                    <p class="text-center lead">Seus contatos estão abaixo</p>
+                    <h1 class="display-1 text-center">Cadastrar contato</h1>
+                    <p class="text-center lead">Crie ou edite seus contatos abaixo</p>
 
-                    <%- include('includes/messages') %>
+                    <%- include('includes/messages'); %>
 
-                        <div class="responsive-table">
-                            <table class="table my-3">
-                                <tr>
-                                    <td>Nome</td>
-                                    <td>Sobrenome</td>
-                                    <td>Telefone</td>
-                                    <td>email@email.com</td>
-                                </tr>
-                            </table>
-                        </div>
-
+                        <% if(contato._id) { %>
+                        <form action="/contato/edit/<%= contato._id %>" method="POST">
+                        <% } else { %>
+                        <form action="/contato/register" method="POST">
+                        <% } %>
+                            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Nome</label>
+                                <input value= "<%= contato.nome %>" type="text" class="form-control" aria-describedby="emailHelp" placeholder="Nome"
+                                    name="nome">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Sobrenome</label>
+                                <input value= "<%= contato.sobrenome %>" type="text" class="form-control" placeholder="Sobrenome" name="sobrenome">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Telefone</label>
+                                <input value= "<%= contato.telefone %>" type="tel" class="form-control" placeholder="Telefone" name="telefone">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">E-mail</label>
+                                <input value= "<%= contato.email %>" type="email" class="form-control" placeholder="Email" name="email">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Salvar</button>
+                        </form>
                 </div>
 
-                <div class="col-lg-2"></div>
-            </div>
-        </div>
-
-        <%- include('includes/footer.ejs') %>
+                <%- include('includes/footer.ejs') %>
