@@ -39,17 +39,35 @@ exports.editContact = async function (req, res) {
     try {
         const contato = new Contato(req.body, req.session.login._id)
         await contato.edit(req.params.id);
-        if(contato.errors.length > 0) {
-        req.flash('errors', contato.errors)
-        req.session.save(() => res.redirect(`/contato/index/${req.params.id}`))
-        return;
-        }   
+        if (contato.errors.length > 0) {
+            req.flash('errors', contato.errors)
+            req.session.save(() => res.redirect(`/contato/index/${req.params.id}`))
+            return;
+        }
 
         req.flash('success', 'Seu contato foi atualizado com sucesso');
         req.session.save(() => res.redirect(`/contato/index/${contato.contato._id}`));
     } catch (e) {
         console.log(e);
         res.render('404');
+    }
+}
+
+exports.delete = async function (req, res) {
+    console.log('Entrou no delete');
+    console.log('Params:', req.params)
+
+    try {
+        if (!req.params.id) return res.render('404');
+
+        const contato = await Contato.deleteId(req.params.id, req.session.login._id);
+        if (!contato) return res.render('404');
+
+        req.flash('success', 'Seu contato foi apagado com sucesso');
+        req.session.save(() => res.redirect('/index'))
+
+    } catch (e) {
+        console.log(e);
     }
 }
 

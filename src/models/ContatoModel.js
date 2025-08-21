@@ -21,12 +21,33 @@ class Contato {
         this.contato = null;
     }
 
+    static async deleteId(id) {
+        console.log('Chamou o deleteId com ID', id);
+        try {
+            if(typeof id !== 'string') return;
+            const contato = await ContatoModel.findByIdAndDelete(id);
+            return contato
+        } catch(e) {
+            console.log(e);
+        }
+    }
+
     static async findId(id) {
         try {
             if (typeof id !== 'string') return;
             const user = await ContatoModel.findById(id);
             return user;
         } catch (e) {
+            console.log(e);
+        }
+    }
+
+    static async find(userId) {
+        try {
+            const contatos = await ContatoModel.find({ userId })
+                .sort({ createdIn: -1 }); // Ordenando a lista de contatos de forma decrescente
+            return contatos;
+        } catch(e) {
             console.log(e);
         }
     }
