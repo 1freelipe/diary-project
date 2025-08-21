@@ -23,7 +23,12 @@ exports.loginInitial = async function (req, res) {
         }
 
         req.flash('success', 'Usuário logado com sucesso');
-        req.session.login = login.user;
+        req.session.login = { 
+            _id: login.user._id,
+            nome: login.user.nome,
+            email: login.user.email
+        };
+        
         req.session.save(function () {
             return res.redirect('/login/index');
         })
