@@ -1,0 +1,9 @@
+.my-table, .my-table td, .my-table th {
+    border: 1px solid #ccc;
+    padding: 5px;
+    text-align: center;
+}
+
+.my-table th {
+    background: #ccc;
+}
