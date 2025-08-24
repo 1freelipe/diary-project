@@ -1,4 +1,6 @@
-.my-table, .my-table td, .my-table th {
+.my-table,
+.my-table td,
+.my-table th {
     border: 1px solid #ccc;
     padding: 5px;
     text-align: center;
@@ -6,4 +8,84 @@
 
 .my-table th {
     background: #ccc;
+}
+
+.input-container {
+    position: relative;
+}
+
+.input-container.incorrect-email::after {
+    content: 'E-mail incorreto';
+    font-weight: bold;
+    font-style: italic;
+    font-size: 12px;
+    color: red;
+    position: absolute;
+    bottom: -20px;
+    left: 5px;
+}
+
+.input-container-password {
+    position: relative;
+}
+
+.input-container-password.incorrect-password::after {
+    content: 'Senha incorreta';
+    font-weight: bold;
+    font-style: italic;
+    font-size: 12px;
+    color: red;
+    position: absolute;
+    bottom: -20px;
+    left: 5px;
+}
+
+.div-name {
+    position: relative;
+}
+
+.div-name.incorrect-name::after {
+    content: 'O campo "nome" precisa ser preenchido';
+    font-weight: bold;
+    font-style: italic;
+    font-size: 12px;
+    color: red;
+    position: absolute;
+    bottom: -20px;
+    left: 5px;
+}
+
+.div-phonenumber {
+    position: relative;
+}
+
+.div-phonenumber.incorrect-phonenumber::after {
+    content: 'O campo "telefone" precisa ser preenchido';
+    font-weight: bold;
+    font-style: italic;
+    font-size: 12px;
+    color: red;
+    position: absolute;
+    bottom: -20px;
+    left: 5px;
+}
+
+.div-email {
+    position: relative;
+}
+
+.div-email.incorrect-email::after {
+    content: 'O campo "email" precisa ser preenchido';
+    font-weight: bold;
+    font-style: italic;
+    font-size: 12px;
+    color: red;
+    position: absolute;
+    bottom: -20px;
+    left: 5px;
+}
+
+.btn-primary {
+    margin: 20px auto;
+    display: block;
 }
