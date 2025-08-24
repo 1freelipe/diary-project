@@ -2,41 +2,43 @@
     <%- include('includes/nav.ejs') %>
 
 
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-2"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-2"></div>
 
-                <div class="col-lg-8 my-5">
-                    <h1 class="display-1 text-center">Cadastrar contato</h1>
-                    <p class="text-center lead">Crie ou edite seus contatos abaixo</p>
+        <div class="col-lg-8 my-5">
+            <h1 class="display-1 text-center">Cadastrar contato</h1>
+            <p class="text-center lead">Crie ou edite seus contatos abaixo</p>
 
-                    <%- include('includes/messages'); %>
+            <%- include('includes/messages'); %>
 
-                        <% if(contato._id) { %>
-                        <form action="/contato/edit/<%= contato._id %>" method="POST">
-                        <% } else { %>
-                        <form action="/contato/register" method="POST">
+                <% if(contato._id) { %>
+            <form action="/contato/edit/<%= contato._id %>" class="form-contact" method="POST">
+                <% } else { %>
+                    <form action="/contato/register" class="form-contact" method="POST">
                         <% } %>
-                            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Nome</label>
-                                <input value= "<%= contato.nome %>" type="text" class="form-control" aria-describedby="emailHelp" placeholder="Nome"
-                                    name="nome">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Sobrenome</label>
-                                <input value= "<%= contato.sobrenome %>" type="text" class="form-control" placeholder="Sobrenome" name="sobrenome">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Telefone</label>
-                                <input value= "<%= contato.telefone %>" type="tel" class="form-control" placeholder="Telefone" name="telefone">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">E-mail</label>
-                                <input value= "<%= contato.email %>" type="email" class="form-control" placeholder="Email" name="email">
-                            </div>
-                            <button type="submit" class="btn btn-primary">Salvar</button>
-                        </form>
-                </div>
-
+                        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                        <div class="form-group div-name">
+                            <label for="exampleInputEmail1">Nome</label>
+                            <input value="<%= contato.nome %>" type="text" class="form-control"
+                                aria-describedby="emailHelp" placeholder="Nome" name="nome">
+                        </div>
+                        <div class="form-group div-lastname">
+                            <label for="exampleInputPassword1">Sobrenome</label>
+                            <input value="<%= contato.sobrenome %>" type="text"
+                                class="form-control" placeholder="Sobrenome" name="sobrenome">
+                        </div>
+                        <div class="form-group div-phonenumber">
+                            <label for="exampleInputPassword1">Telefone</label>
+                            <input value="<%= contato.telefone %>" type="tel"
+                                class="form-control" placeholder="Telefone" name="telefone">
+                        </div>
+                        <div class="form-group div-email">
+                            <label for="exampleInputPassword1">E-mail</label>
+                            <input value="<%= contato.email %>" type="email"
+                                class="form-control" placeholder="Email" name="email">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Salvar</button>
+                    </div>
+                </form>
                 <%- include('includes/footer.ejs') %>

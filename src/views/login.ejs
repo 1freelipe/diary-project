@@ -14,22 +14,19 @@
                     <div class="row">
                         <div class="col-lg">
                             <h4>Faça seu cadastro</h4>
-                            <form action="/login/register" method="POST">
+                            <form action="/login/register" class="form-cadastro" method="POST">
                                 <input type="hidden" name="_csrf" value="<%= csrfToken %>">
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Endereço de email</label>
-                                    <input type="email" class="form-control" id="exampleInputEmail1"
-                                        aria-describedby="emailHelp" placeholder="Seu email" name="email">
-                                    <small id="emailHelp" class="form-text text-muted">Nunca vamos compartilhar seu
-                                        email, com ninguém.</small>
+                                <div class="form-group input-container">
+                                    <label>Endereço de email</label>
+                                    <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Seu email" name="email">
                                 </div>
-                                <div class="form-group">
-                                    <label for="exampleInputPassword1">Senha</label>
-                                    <input type="password" class="form-control" id="exampleInputPassword1"
+                                <div class="form-group input-container-password">
+                                    <label>Senha</label>
+                                    <input type="password" class="form-control" 
                                         placeholder="Senha" name="password">
                                 </div>
                                 <div class="form-group form-check">
-                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                    <input type="checkbox" class="form-check-input">
                                     <label class="form-check-label" for="exampleCheck1">Aceito os termos de
                                         condição</label>
                                 </div>
@@ -39,22 +36,20 @@
 
                         <div class="col-lg">
                             <h4>Faça login</h4>
-                            <form action="/login/initial" method="POST">
+                            <form action="/login/initial" class="form-login" method="POST">
                                 <input type="hidden" name="_csrf" value="<%= csrfToken %>">
-                                <div class="form-group">
+                                <div class="form-group input-container">
                                     <label for="exampleInputEmail1">Endereço de email</label>
-                                    <input type="email" class="form-control" id="exampleInputEmail1"
+                                    <input type="email" class="form-control"
                                         aria-describedby="emailHelp" placeholder="Seu email" name="email">
-                                    <small id="emailHelp" class="form-text text-muted">Nunca vamos compartilhar seu
-                                        email, com ninguém.</small>
                                 </div>
-                                <div class="form-group">
-                                    <label for="exampleInputPassword1">Senha</label>
-                                    <input type="password" class="form-control" id="exampleInputPassword1"
+                                <div class="form-group input-container-password">
+                                    <label>Senha</label>
+                                    <input type="password" class="form-control"
                                         placeholder="Senha" name="password">
                                 </div>
                                 <div class="form-group form-check">
-                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                    <input type="checkbox" class="form-check-input">
                                     <label class="form-check-label" for="exampleCheck1">Aceito os termos de
                                         condição</label>
                                 </div>
