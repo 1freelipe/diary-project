@@ -22,7 +22,6 @@ class Contato {
     }
 
     static async deleteId(id) {
-        console.log('Chamou o deleteId com ID', id);
         try {
             if(typeof id !== 'string') return;
             const contato = await ContatoModel.findByIdAndDelete(id);
