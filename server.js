@@ -31,7 +31,27 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.static(path.resolve(__dirname, 'public')));
 
 const helmet = require('helmet');
-app.use(helmet());
+app.use(helmet.contentSecurityPolicy({
+        directives: {
+      defaultSrc: ["'self'"],
+      scriptSrc: [
+        "'self'",
+        "https://code.jquery.com",
+        "https://cdnjs.cloudflare.com",
+        "https://stackpath.bootstrapcdn.com"
+      ],
+      styleSrc: [
+        "'self'",
+        "'unsafe-inline'",
+        "https://stackpath.bootstrapcdn.com"
+      ],
+      fontSrc: ["'self'", "https://stackpath.bootstrapcdn.com"],
+      imgSrc: ["'self'", "data:"],
+      connectSrc: ["'self'"],
+      frameSrc: ["'self'"]
+    }
+  })
+);
 
 const csrf = require('csurf');
 
