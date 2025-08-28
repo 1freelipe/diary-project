@@ -88,7 +88,7 @@ app.use(routes);
 
 // Aguardando a conexão na base de dados, pra depois ouvir no servidor // Esperando a promise
 app.on('pronto', () => {
-    app.listen(3000, () => {
+    app.listen(process.env.PORT || 3000, () => {
         console.log('Acessar http://localhost:3000/index');
         console.log("Servidor executando na porta 3000");
     });
