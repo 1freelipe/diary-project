@@ -6,3 +6,5 @@
 ### 2. MongoDB como banco de dados, cluster free
 ### 3. EJS como engine
 ### 4. Webpack-boilerplate para transcrição
+
+## Deploy da aplicação realizado via Azure for students, confira: mydiaryproject-fcdyhrb6c9gnera9.brazilsouth-01.azurewebsites.net
