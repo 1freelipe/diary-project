@@ -86,6 +86,11 @@ app.use(middlewareGlobal);
 app.use(checkCSRFerror);
 app.use(routes);
 
+// Redirecionando o GET / para o /index
+app.get('/', (req, res) => {
+  res.redirect('/index');
+});
+
 // Aguardando a conexão na base de dados, pra depois ouvir no servidor // Esperando a promise
 app.on('pronto', () => {
     app.listen(process.env.PORT || 3000, () => {
